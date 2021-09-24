@@ -1,0 +1,44 @@
+<div class="container">
+
+  <div id="page-content">
+  <h1 class="text-center mt-4 py-6"> Edit Tasks </h1></div>
+  <% if @user.errors.any? %>
+      <h2> Please folloving erros</h2>
+      <ul>
+      <% @user.errors.messages.each do |msg|%>
+      <li><%=msg%></li>
+      <% end %>
+      </ul>
+  <% end %>
+  <%= form_for(@user) do |f| %>
+
+      <div>
+        <%= f.fields_for :statuses do |t| %>
+          <%= render "status_fields", :f => t %>
+        <% end %>
+        
+        <div>
+            <div id="page-content">
+              <p class="text-end pt-0 my-9 pb-5 me-0"> <%= link_to_add_association "Add New", f, :statuses, class: "btn btn-outline-success fw-bold" %></p> 
+            </div>
+          </div>
+      </div>
+      
+      <div>
+        
+      </div>
+    </div>
+  
+
+    <div id="page-content">
+      <h3 class="text-center my-6">
+      </h3>
+    </div>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <input type="submit" name="commit" value="Update Task" data-disable-with="Update User" class="btn btn-info">
+        <td><%= link_to "Cancle",new_user_path , class:"btn btn-danger"%></td>
+
+</div>
+
+  <% end %>

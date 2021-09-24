@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+         
+        table,th,td{
+          width:400px;
+          margin: auto;
+          font-size:15px;
+          padding:10px;
+          text-align: center;
+          border:2px solid #000;
+          border-collapse: collapse;
+          }
+      
+      </style>
+  </head>
+  <body>
+    <p> Hi Nishant Sir,</p>
+    <p>
+    Tasks details<br>
+    --------------------------
+    </p>
+    
+ 
+<table>
+  <thead>
+    <tr>
+      <th>index</th>
+      <th>Date</th>
+      <th>Tasks</th>
+      <th>PR-links</th>
+      <th>Hours</th>
+    </tr>
+  </thead>
+   
+  <tbody>
+  <% @user.statuses.each.with_index do |status,index| %>
+            <tr>
+              <th scope="row"><%= index %></th>
+              <td><%= status.select_date %></td>
+              <td><%= status.tasks %></td>
+              <td><%= link_to "PR-link", status.prlinks, target: '_blank' %></td>
+              <td><%= status.hours %></td>
+            </tr>
+            <% end %>
+    </tbody>
+    </table>
+            
+  Thank you <br>
+    ----------
+  </body>
+</html>
