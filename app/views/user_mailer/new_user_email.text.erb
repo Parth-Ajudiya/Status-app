@@ -1,0 +1,17 @@
+
+You got a new order from 
+===============================================
+
+Order Details:
+--------------------------
+
+  
+ <% @user.statuses.each.with_index(1) do |status,index| %>
+            <tr>
+              <th scope="row"><%= index %></th>
+              <td><%= status.select_date %></td>
+              <td><%= status.tasks %></td>
+              <td><%= link_to "Github PR", status.prlinks, target: '_blank' %></td>
+              <td><%= status.hours %></td>
+            </tr>
+            <% end %>

@@ -1,0 +1,45 @@
+<div class="row jusify-contenet-center">
+ <div class="col-11">
+    <div class="container">
+      <div class="nested-fields">
+
+        <div class="form-group row fs-4 fw-bold">
+          <%= f.label "Select Date", class: "col-2 col-form-label"  %>
+          <div class="col-2 ">
+            <%= f.text_field :select_date,
+            data: {
+            controller: "flatpickr",
+            flatpickr_date_format: "Y-m-d",
+            flatpickr_max_date: Time.zone.now
+            } , class: "form-control" %></br>
+          </div>
+        </div>  
+          <div class="form-group row fs-4 fw-bold">
+            <%= f.label "Task", class: "col-2 col-form-label" %>
+            <div class="col-8">
+            <%= f.text_field :tasks, class: "form-control" %></br>
+            </div>
+          </div> 
+
+          <div class="form-group row fs-4 fw-bold">
+            <%= f.label "PR-LINK",class: "col-2 col-form-label"  %>
+            <div class="col-8">
+            <%= f.text_field :prlinks, class: "form-control" %></br>
+            </div>
+          </div> 
+
+          <div class="form-group row fs-4 fw-bold">
+            <%= f.label "Spent Hours",class: "col-2 col-form-label" %>
+            <div class="col-1">
+            <%= f.text_field :hours, class: "form-control" %></br>
+            </div>
+          </div> 
+
+          
+    <div id="page-content">
+    <div class="d-grid gap-2 d-md-flex justify-content-end">
+    <p class="pt-2 mt-0"> <%= link_to_remove_association "Delete", f, class: "btn btn-outline-danger fw-bold" %></p>
+     
+    </div>
+  </div>
+</div>
